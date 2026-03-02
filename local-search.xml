@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>LeetCode1689</title>
+    <link href="/2026/03/02/LeetCode1689/"/>
+    <url>/2026/03/02/LeetCode1689/</url>
+    
+    <content type="html"><![CDATA[<p>题解</p><span id="more"></span><p><a href="https://leetcode.cn/problems/partitioning-into-minimum-number-of-deci-binary-numbers/description/">题目详情</a></p><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>如果一个十进制数字不含任何前导零，且每一位上的数字不是 <code>0</code> 就是 <code>1</code> ，那么该数字就是一个 十-二进制数 。例如，<code>101</code> 和 <code>1100</code> 都是 十-二进制数，而 <code>112</code> 和 <code>3001</code> 不是。</p><p>给你一个表示十进制整数的字符串 <code>n</code> ，返回和为 <code>n</code>的 十-二进制数 的最少数目。</p><ul><li><code>1 &lt;= n.length &lt;= 105</code></li><li><code>n</code> 仅由数字组成</li><li><code>n</code> 不含任何前导零并总是表示正整数</li></ul><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>因为十-二进制数每一位上的数字不是<code>0</code>就是<code>1</code>，则对于<code>n</code>上任意一位，只能由十-二进制数相应数位上<code>0</code>、<code>1</code>相加得到，那么只需要比较不同数位上的数字，找到最大的数字即可。</p><h2 id="示例代码1"><a href="#示例代码1" class="headerlink" title="示例代码1"></a>示例代码1</h2><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs excel">#include &lt;string.h&gt;<br><span class="hljs-built_in">int</span> minPartitions(<span class="hljs-built_in">char</span>* <span class="hljs-built_in">n</span>) &#123;<br>    <span class="hljs-built_in">int</span> <span class="hljs-built_in">max</span> = <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span> = <span class="hljs-number">0</span>;<br>    <span class="hljs-built_in">len</span> = strlen(<span class="hljs-built_in">n</span>);<br>    for(<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-built_in">len</span>;i++)&#123;<br>        <span class="hljs-built_in">if</span>(<span class="hljs-built_in">max</span> &lt; <span class="hljs-built_in">n</span>[i] - <span class="hljs-number">48</span>)&#123;<br>            <span class="hljs-built_in">max</span> = <span class="hljs-built_in">n</span>[i] - <span class="hljs-number">48</span>;<br>        &#125;<br>    &#125;<br>    return <span class="hljs-built_in">max</span>;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>时间复杂度：$O(N) 击败 36.49%<br>空间复杂度：$O(1) 击败 13.51%</p><h2 id="示例代码2"><a href="#示例代码2" class="headerlink" title="示例代码2"></a>示例代码2</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minPartitions</span><span class="hljs-params">(<span class="hljs-type">char</span>* n)</span> </span>&#123;<br>    <span class="hljs-type">int</span> max = <span class="hljs-number">1</span>, len = <span class="hljs-number">0</span>;<br>    len = <span class="hljs-built_in">strlen</span>(n);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;i &lt; len;i++)&#123;<br>        <span class="hljs-keyword">if</span>(max &lt; n[i] - <span class="hljs-number">48</span>)&#123;<br>            max = n[i] - <span class="hljs-number">48</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(max == <span class="hljs-number">9</span>)&#123;<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> max;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p>时间复杂度：$O(N) 击败   100%<br>空间复杂度：$O(1) 击败 13.51%</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Code</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>creations</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>十八</title>
     <link href="/2025/12/28/Eighteen/"/>
     <url>/2025/12/28/Eighteen/</url>
