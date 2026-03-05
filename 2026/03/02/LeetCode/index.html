@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ontongh.github.io/img/bg/Code_background.jpg">
 <meta property="article:published_time" content="2026-03-02T12:44:00.000Z">
-<meta property="article:modified_time" content="2026-03-04T13:23:43.481Z">
+<meta property="article:modified_time" content="2026-03-05T06:13:25.878Z">
 <meta property="article:author" content="ZhaoShibin">
 <meta property="article:tag" content="creations">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          3.6k 字
         
       </span>
     
@@ -214,7 +214,7 @@
         
         
         
-          24 分钟
+          30 分钟
         
       </span>
     
@@ -299,6 +299,13 @@
 <h3 id="示例代码-1"><a href="#示例代码-1" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs excel"><span class="hljs-built_in">int</span> numSpecial(<span class="hljs-built_in">int</span>** mat, <span class="hljs-built_in">int</span> matSize, <span class="hljs-built_in">int</span>* matColSize) &#123;<br>    <span class="hljs-built_in">int</span> <span class="hljs-built_in">sum</span> = <span class="hljs-number">0</span>, <span class="hljs-built_in">count</span> = <span class="hljs-number">0</span>;<br>    for (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; matSize; i++) &#123;<br>        for (<span class="hljs-built_in">int</span> j = <span class="hljs-number">0</span>; j &lt; matColSize[i]; j++) &#123;<br>            <span class="hljs-built_in">if</span> (mat[i][j] != <span class="hljs-number">1</span>) &#123;<br>                continue;<br>            &#125; else &#123;<br>                for (<span class="hljs-built_in">int</span> m = <span class="hljs-number">0</span>; m &lt; matColSize[i]; m++) &#123;<br>                    <span class="hljs-built_in">sum</span> = <span class="hljs-built_in">sum</span> + mat[i][m];<br>                &#125;<br>                <span class="hljs-built_in">if</span> (<span class="hljs-built_in">sum</span> == <span class="hljs-number">1</span>) &#123;<br>                    for (<span class="hljs-built_in">int</span> <span class="hljs-built_in">n</span> = <span class="hljs-number">0</span>; <span class="hljs-built_in">n</span> &lt; matSize; <span class="hljs-built_in">n</span>++) &#123;<br>                        <span class="hljs-built_in">sum</span> = <span class="hljs-built_in">sum</span> + mat[<span class="hljs-built_in">n</span>][j];<br>                    &#125;<br>                    <span class="hljs-built_in">if</span> (<span class="hljs-built_in">sum</span> == <span class="hljs-number">2</span>) &#123;<br>                        <span class="hljs-built_in">count</span>++;<br>                    &#125;<br>                &#125;<br>                <span class="hljs-built_in">sum</span> = <span class="hljs-number">0</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    return <span class="hljs-built_in">count</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h3><p>时间复杂度：O(M∗N∗(M+N)) 击败24.00%<br>空间复杂度：O(1) 击败16.00%</p>
+<h2 id="LeetCode1758题目详情"><a href="#LeetCode1758题目详情" class="headerlink" title="LeetCode1758题目详情"></a>LeetCode1758<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-changes-to-make-alternating-binary-string/description/">题目详情</a></h2><h3 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h3><p>给你一个仅由字符 <code>&#39;0&#39;</code>和 <code>&#39;1&#39;</code> 组成的字符串 <code>s</code> 。一步操作中，你可以将任一 <code>&#39;0&#39;</code> 变成 <code>&#39;1&#39;</code> ，或者将 <code>&#39;1&#39;</code> 变成 <code>&#39;0&#39;</code> 。</p>
+<p>交替字符串 定义为：如果字符串中不存在相邻两个字符相等的情况，那么该字符串就是交替字符串。例如，字符串 <code>&quot;010&quot;</code> 是交替字符串，而字符串 <code>&quot;0100&quot;</code> 不是。</p>
+<p>返回使 <code>s</code> 变成 交替字符串 所需的 最少 操作数。</p>
+<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>题目特地指出替换操作，这是一步迷惑操作，分析知道，实际上交替字符只有两种情况： <code>&#39;1010...&#39;</code> ， <code>0101...&#39;</code> ，针对这两种情况，我们将字符串 <code>s</code> 分别对比即可。</p>
+<h3 id="示例代码-2"><a href="#示例代码-2" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minOperations</span><span class="hljs-params">(<span class="hljs-type">char</span>* s)</span> </span>&#123;<br>    <span class="hljs-type">int</span> len = <span class="hljs-built_in">strlen</span>(s);<br>    <span class="hljs-type">int</span> sum1 = <span class="hljs-number">0</span>, sum2 = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>        <span class="hljs-keyword">if</span> ((i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> &amp;&amp; s[i] == <span class="hljs-string">&#x27;1&#x27;</span>) || (i % <span class="hljs-number">2</span> != <span class="hljs-number">0</span> &amp;&amp; s[i] == <span class="hljs-string">&#x27;0&#x27;</span>)) &#123;<br>            sum1++;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            sum2++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (sum1 &gt; sum2) &#123;<br>        <span class="hljs-keyword">return</span> sum2;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> sum1;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="分析-4"><a href="#分析-4" class="headerlink" title="分析"></a>分析</h3><p>时间复杂度：O(N) 击败100.00%<br>空间复杂度：O(1) 击败5.00%</p>
 
                 
               </div>
